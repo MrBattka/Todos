@@ -17,7 +17,7 @@ const App = () => {
           <Routes>
             <Route path='' element={<AllTask />} />
             <Route path='/' element={<AllTask />} />
-            <Route path='/all/*' element={<AllTask />} />
+            <Route path='/all' element={<AllTask />} />
             <Route path='/active' element={<ActiveTask />} />
             <Route path='/completed' element={<CompletedTask />} />
           </Routes>
