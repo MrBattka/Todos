@@ -1,9 +1,17 @@
 import React from "react";
+import { TaskType } from "../../redux/input-reduser";
 
-const ActiveTask = () => {
+type PropTypes = {
+    tasks: any
+}
+
+const ActiveTask: React.FC<PropTypes> = ({tasks}) => {
+    if (!tasks) {
+       return tasks
+    }
     return (
         <div>
-            <li>Test</li>
+            <p>{tasks}</p>
         </div>
     )
 }

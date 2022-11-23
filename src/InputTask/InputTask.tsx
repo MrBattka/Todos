@@ -1,23 +1,45 @@
-import React, { useState} from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import ActiveTask from "../AllTasks/ActiveTask/ActiveTask";
 import styles from "./InputTask.module.css"
+import { Route, Routes } from 'react-router-dom';
+import AllTask from "../AllTasks/AllTask";
+import CompletedTask from "../AllTasks/CompletedTask/CompletedTask";
+import { TaskType } from "../redux/input-reduser";
 
-const InputTask = () => {
+type PropsType = {
+    tasks: Array<TaskType> | any
+    newTaskText: string
+    addTask: (newTaskText: string) => void
+    updateNewText: (text: string) => void
+}
+
+const InputTask: React.FC<PropsType> = ({newTaskText, addTask, updateNewText, tasks}) => {
+    
+    let sendInput: any = React.createRef<HTMLInputElement>();
+
     const navigate = useNavigate()
-    const [message, setMessage] = useState('');
-    const submitForm = (e: any) => {
-        e.preventDefault()
-        navigate('/active')
+    
+    const newInputText = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let text = sendInput.current.value
+        updateNewText(text)
     }
-    const handleClick = () => {
-        setMessage("")
-    }    
+    const onAddTask = (e: React.MouseEvent<Element, MouseEvent>) => {
+        e.preventDefault()
+        let text = sendInput.current.value
+        navigate('/active')
+        addTask(text)
+        text = ""
+    }
+    let taskElement = tasks.map( p => <ActiveTask tasks={p.task} /> );
     return (
         <div>
-            <form onSubmit={submitForm}>
-                <input onChange={(e) => setMessage(e.target.value)} value={message} type="input" placeholder="What needs to be done?" />
-                <button className={styles.btnSubmit} onClick={handleClick} type="submit"></button>
+            <form>
+                <input ref={ sendInput } onChange={newInputText} type='input' 
+                       value={newTaskText} placeholder="What needs to be done?" />
+                <button className={styles.btnSubmit} onClick={onAddTask} type="submit"></button>
             </form>
+            <div>{taskElement}</div>
         </div>
     )
 }

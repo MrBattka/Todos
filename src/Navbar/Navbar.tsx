@@ -1,18 +1,21 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-// import styles from './Navbar.module.css'
+import styles from './Navbar.module.css'
 
 const Navbar = () => {
     return (
         <nav>
             <div>
-                <NavLink to='/all'>All</NavLink>
+                <NavLink className={ navData => navData.isActive ? styles.active : styles.item }
+                    to='/all'>All</NavLink>
             </div>
             <div>
-                <NavLink to="/active">Active</NavLink>
+                <NavLink className={ navData => navData.isActive ? styles.active : styles.item }
+                    to="/active">Active</NavLink>
             </div>
             <div>
-                <NavLink to="/completed">Completed</NavLink>
+                <NavLink className={ navData => navData.isActive ? styles.active : styles.item }
+                    to="/completed">Completed</NavLink>
             </div>
         </nav>
     )

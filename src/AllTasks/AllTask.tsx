@@ -4,8 +4,6 @@ const AllTask = () => {
     return (
         <div>
             <li>TaskTest</li>
-            <li>TaskTest</li>
-            <li>TaskTest</li>
         </div>
     )
 }
