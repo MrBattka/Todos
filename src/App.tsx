@@ -1,28 +1,29 @@
+import { useReducer } from "react";
 import styles from './App.module.css';
 import Navbar from './Navbar/Navbar';
-import InputTaskCont from './InputTask/InputTaskCont';
-import { Route, Routes } from 'react-router-dom';
-import AllTask from './AllTasks/AllTask';
-import ActiveTask from './AllTasks/ActiveTask/ActiveTask';
-import CompletedTask from './AllTasks/CompletedTask/CompletedTask';
+import NewTask from './NewTask/NewTask';
+import { Action, ContextState, State } from "./state/stateTypes";
+import todoReducer, { ContextApp, initialState } from './state/task-reduser';
+
 
 const App = () => {
+  const [state, changeState] = useReducer<React.Reducer<State, Action>>(todoReducer, initialState);
+
+  const ContextState: ContextState = {
+    state,
+    changeState
+  };
   return (
-    <div className={styles.app}>
-      <div className={styles.wrapperApp}>
-        <InputTaskCont />
-        <div>
-          <Routes>
-            <Route path='' element={<AllTask />} />
-            <Route path='/' element={<AllTask />} />
-            <Route path='/all' element={<AllTask />} />
-            <Route path='/active' element={<ActiveTask />} />
-            <Route path='/completed' element={<CompletedTask />} />
-          </Routes>
+    <>
+      <ContextApp.Provider value={ContextState}>
+        <div className={styles.app}>
+          <div className={styles.wrapperApp}>
+            <NewTask />
+            <Navbar />
+          </div>
         </div>
-        <Navbar />
-      </div>
-    </div>
+      </ContextApp.Provider>
+    </>
   );
 }
 
