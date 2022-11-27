@@ -1,24 +1,24 @@
-import * as React from 'react'
 import { useContext } from "react";
-import { ActionType, Task } from '../../state/stateTypes';
+import { ActionType, defaultState, Task } from '../../state/ContextTypes';
 import { ContextApp } from "../../state/task-reduser";
-import styles from './CompletedTask.module.css'
+import styles from './CompletedTask.module.css';
 
 const CompletedTask = () => {
-    const { state, changeState } = useContext(ContextApp);
+    const { state = defaultState, changeState = () => {} } = useContext(ContextApp);
     const toggleReadiness = (taskForChange: Task) => {
         changeState({ type: ActionType.TOGGLE, payload: taskForChange })
     }
     const removeTask = (taskForRemoving: Task) => {
         changeState({ type: ActionType.REMOVE, payload: taskForRemoving })
     }
+    
 
     return (
         <>
             {!state.isDone ? null : <div>
                 <ul>
                     {state.tasks.map((task, i) => (
-                        <li key={i} className={task.isDone ? styles.ready : null}>
+                        <li key={i} className={task.isDone ? styles.ready : undefined}>
                             <label>
                                 <input type="checkbox" onChange={() => toggleReadiness(task)} checked={task.isDone} />
                             </label>

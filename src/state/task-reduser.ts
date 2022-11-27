@@ -1,6 +1,6 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import {Action, State, ContextState, ActionType} from "./stateTypes";
+import { Action, ActionType, ContextState, State } from "./ContextTypes";
 
 export const initialState: State = {
     tasks: [],
@@ -10,17 +10,13 @@ export const initialState: State = {
 
 export const ContextApp = React.createContext<Partial<ContextState>>({});
 
-
-export const todoReducer = (state: State, action: Action):State => {
+export const todoReducer = (state: State, action: Action): State => {
     switch (action.type) {
         case ActionType.ADD: {
-            return {...state, tasks: [...state.tasks, {
+            return {...state, newTask: action.payload, tasks: [...state.tasks, {
                     name: action.payload,
                     isDone: false
                 }]}
-        }
-        case ActionType.CHANGE: {
-            return {...state, newTask: action.payload}
         }
         case ActionType.REMOVE: {
             return {...state, tasks:  [...state.tasks.filter(task => task !== action.payload)]}

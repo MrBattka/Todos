@@ -1,4 +1,4 @@
-import {Dispatch} from "react";
+import { Dispatch } from "react";
 
 export type Task = {
     name: string;
@@ -13,21 +13,26 @@ export type State = {
     isDone: boolean
 }
 
+export const defaultState: State = {
+    newTask: '',
+    tasks: [],
+    isDone: false
+}
+
 export enum ActionType {
     ADD = 'ADD',
-    CHANGE = 'CHANGE',
     REMOVE = 'REMOVE',
     TOGGLE = 'TOGGLE'
 }
 
-type ActionStringPayload = {
-    type: ActionType.ADD | ActionType.CHANGE,
-    payload: string
+export type ActionStringPayload = {
+    type: ActionType.ADD
+    payload: string 
 }
 
-type ActionObjectPayload = {
+export type ActionObjectPayload = {
     type: ActionType.TOGGLE | ActionType.REMOVE,
-    payload: Task
+    payload: Task 
 }
 
 export type Action = ActionStringPayload | ActionObjectPayload;

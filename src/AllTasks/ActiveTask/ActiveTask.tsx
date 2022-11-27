@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { useContext } from "react";
-import { ActionType, Task } from '../../state/stateTypes';
+import { ActionType, defaultState, Task } from '../../state/ContextTypes';
 import { ContextApp } from "../../state/task-reduser";
 
 const ActiveTask: React.FC = () => {
-    const { state, changeState } = useContext(ContextApp);
+    const { state = defaultState, changeState = () => {} } = useContext(ContextApp);
     const toggleReadiness = (taskForChange: Task) => {
         changeState({ type: ActionType.TOGGLE, payload: taskForChange })
     }

@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import styles from './App.module.css';
 import Navbar from './Navbar/Navbar';
 import NewTask from './NewTask/NewTask';
-import { Action, ContextState, State } from "./state/stateTypes";
+import { Action, ContextState, State } from "./state/ContextTypes";
 import todoReducer, { ContextApp, initialState } from './state/task-reduser';
 
 

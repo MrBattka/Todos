@@ -1,34 +1,34 @@
 import * as React from 'react';
-import { useContext } from "react";
-import { TypeProps } from "./NewTaskType";
-import { ActionType } from "../state/stateTypes";
-import { ContextApp } from "../state/task-reduser";
+import { useCallback, useContext, useState } from "react";
 import { Route, Routes } from 'react-router-dom';
-import AllTask from '../AllTasks/AllTask';
 import ActiveTask from '../AllTasks/ActiveTask/ActiveTask';
+import AllTask from '../AllTasks/AllTask';
 import CompletedTask from '../AllTasks/CompletedTask/CompletedTask';
-import styles from './NewTask.module.css'
+import { ActionType } from "../state/ContextTypes";
+import { ContextApp } from "../state/task-reduser";
+import styles from './NewTask.module.css';
 
 const InputTask: React.FC = () => {
-    const { state, changeState } = useContext(ContextApp);
+    const { changeState } = useContext(ContextApp);
 
-    const addTask = (event: React.FormEvent<HTMLFormElement>, task: TypeProps) => {
-        event.preventDefault();
-        if (state?.newTask) {
-            changeState({ type: ActionType.ADD, payload: task })
-            changeState({ type: ActionType.CHANGE, payload: '' })
-        }
-    }
+    const [text, setText] = useState('')
 
-    const changeTask = (event: React.ChangeEvent<HTMLInputElement>) => {
-        changeState({ type: ActionType.CHANGE, payload: event.target.value })
-    }
+    const setTask = useCallback(
+        (event: React.FormEvent<HTMLFormElement>) => {
+            event.preventDefault();
+            if (text && changeState) {
+                changeState({ type: ActionType.ADD, payload: text })
+                setText('')
+            }        
+        },
+        [text, changeState]
+    )
 
     return (
         <div>
-            <form onSubmit={(event) => addTask(event, state.newTask)}>
-                <input onChange={(event) => changeTask(event)} type='text'
-                    value={state?.newTask} placeholder="What needs to be done?" />
+            <form onSubmit={(event) => setTask(event)}>
+                <input onChange={(event) => setText(event.target.value)} type='text'
+                    value={text} placeholder="What needs to be done?" />
                 <button type="submit" className={styles.btnSubmit}></button>
             </form>
             <div>
