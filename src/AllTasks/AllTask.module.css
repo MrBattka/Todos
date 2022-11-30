@@ -1,3 +1,93 @@
 .ready {
-    color:green
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+.ready input {
+    padding: 0;
+    opacity: 0;
+}
+
+.ready span {
+    display: flex;
+    position: absolute;
+    justify-content: flex-start;
+    margin-left: 8px;
+    width: 1px;
+    color: green;
+}
+
+.wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.wrapper ul {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper label {
+    border: 1px solid rgb(192, 206, 201);
+    border-radius: 50%;
+    margin: 5px;
+    width: 25px;
+    height: 25px;
+}
+
+.wrapper label:hover {
+    box-shadow: 0 0 1px;
+}
+
+.wrapper label:active {
+    box-shadow: none;
+}
+
+.wrapper input {
+    display: none;
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: row;
+    height: 37px;
+}
+
+.select {
+    display: none;
+}
+
+.wrapper__text {
+    height: 37px;
+    display: flex;
+    margin-left: 15px;
+}
+
+.task__text {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.remove__button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin: 5px;
+    height: 27px;
+    background-color: inherit;
+    border: none;
+    font-size: 8px;
+    color: rgb(107, 99, 99);
+}
+.remove__button:hover {
+    color: red;
+}
+
+.wrapper__btn {
+    display: flex;
+    justify-content: right;
+    
 }

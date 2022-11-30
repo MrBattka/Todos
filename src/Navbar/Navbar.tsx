@@ -4,8 +4,8 @@ import styles from './Navbar.module.css'
 
 const Navbar = () => {
     return (
-        <nav>
-            <div>
+        <nav className={styles.wrapper}>
+            <div className={styles.wrapper__nav}>
                 <NavLink className={ navData => navData.isActive ? styles.active : styles.item }
                     to='/all'>All</NavLink>
             </div>

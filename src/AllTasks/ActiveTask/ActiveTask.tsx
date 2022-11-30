@@ -2,10 +2,11 @@ import * as React from 'react'
 import { useContext } from "react";
 import { ActionType, defaultState, Task } from '../../state/ContextTypes';
 import { ContextApp } from "../../state/task-reduser";
+import styles from '../AllTask.module.css'
 
 const ActiveTask: React.FC = () => {
-    const { state = defaultState, changeState = () => {} } = useContext(ContextApp);
-    const toggleReadiness = (taskForChange: Task) => {
+    const { state = defaultState, changeState = () => { } } = useContext(ContextApp);
+    const toggleTask = (taskForChange: Task) => {
         changeState({ type: ActionType.TOGGLE, payload: taskForChange })
     }
     const removeTask = (taskForRemoving: Task) => {
@@ -13,25 +14,26 @@ const ActiveTask: React.FC = () => {
     }
 
     return (
-        <>
-            {state?.isDone ? null : <div>
-                <ul>
-                    {state.tasks.map((task, i) => (
-                        <li key={i}>
-                            <label>
-                                <input type="checkbox" onChange={() => toggleReadiness(task)} checked={task.isDone} />
-                            </label>
-                            <div className="task-name">
-                                {task.name}
-                            </div>
-                            <button className='remove-button' onClick={() => removeTask(task)}>
+        <div className={styles.wrapper}>
+            {state.tasks.map((task, i) => (
+
+                task.isDone ? null : <ul key={i}>
+                    <li className={styles.flexbox}>
+                        <label className={task.isDone ? styles.ready : undefined}>
+                            <input type="checkbox" onChange={() => toggleTask(task)} checked={task.isDone} />
+                        </label>
+                        <div className={styles.wrapper__text}>
+                            <p className={styles.task__text}>{task.taskText}</p>
+                        </div>
+                        <div className={styles.wrapper__btn}>
+                            <button className={styles.remove__button} onClick={() => removeTask(task)}>
                                 X
                             </button>
-                        </li>
-                    ))}
+                        </div>
+                    </li>
                 </ul>
-            </div>}
-        </>
+            ))}
+        </div>
     )
 }
 

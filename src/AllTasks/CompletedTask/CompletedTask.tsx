@@ -1,38 +1,39 @@
 import { useContext } from "react";
 import { ActionType, defaultState, Task } from '../../state/ContextTypes';
 import { ContextApp } from "../../state/task-reduser";
-import styles from './CompletedTask.module.css';
+import styles from '../AllTask.module.css';
 
 const CompletedTask = () => {
-    const { state = defaultState, changeState = () => {} } = useContext(ContextApp);
-    const toggleReadiness = (taskForChange: Task) => {
-        changeState({ type: ActionType.TOGGLE, payload: taskForChange })
+    const { state = defaultState, changeState = () => { } } = useContext(ContextApp);
+    const toggleTask = (taskToggle: Task) => {
+        changeState({ type: ActionType.TOGGLE, payload: taskToggle })
     }
-    const removeTask = (taskForRemoving: Task) => {
-        changeState({ type: ActionType.REMOVE, payload: taskForRemoving })
+    const removeTask = (taskRemove: Task) => {
+        changeState({ type: ActionType.REMOVE, payload: taskRemove })
     }
-    
+
 
     return (
-        <>
-            {!state.isDone ? null : <div>
-                <ul>
-                    {state.tasks.map((task, i) => (
-                        <li key={i} className={task.isDone ? styles.ready : undefined}>
-                            <label>
-                                <input type="checkbox" onChange={() => toggleReadiness(task)} checked={task.isDone} />
-                            </label>
-                            <div className="task-name">
-                                {task.name}
-                            </div>
-                            <button className='remove-button' onClick={() => removeTask(task)}>
+        <div className={styles.wrapper}>
+            {state.tasks.map((task, i) => (
+                !task.isDone ? null : <ul key={i}>
+                    <li className={styles.flexbox}>
+                        <label className={task.isDone ? styles.ready : undefined}>
+                            <input type="checkbox" onChange={() => toggleTask(task)} checked={task.isDone} />
+                            <span className={task.isDone ? styles.ready : styles.select}>&#10003;</span>
+                        </label>
+                        <div className={styles.wrapper__text}>
+                            <p className={styles.task__text}>{task.taskText}</p>
+                        </div>
+                        <div className={styles.wrapper__btn}>
+                            <button className={styles.remove__button} onClick={() => removeTask(task)}>
                                 X
                             </button>
-                        </li>
-                    ))}
+                        </div>
+                    </li>
                 </ul>
-            </div>}
-        </>
+            ))}
+        </div>
     )
 }
 

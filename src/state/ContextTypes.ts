@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
 
 export type Task = {
-    name: string;
+    taskText: string;
     isDone: boolean
 }
 
@@ -10,13 +10,11 @@ export type Tasks = Task[];
 export type State = {
     newTask: string;
     tasks: Tasks
-    isDone: boolean
 }
 
 export const defaultState: State = {
     newTask: '',
     tasks: [],
-    isDone: false
 }
 
 export enum ActionType {
@@ -27,12 +25,12 @@ export enum ActionType {
 
 export type ActionStringPayload = {
     type: ActionType.ADD
-    payload: string 
+    payload: string
 }
 
 export type ActionObjectPayload = {
-    type: ActionType.TOGGLE | ActionType.REMOVE,
-    payload: Task 
+    type: ActionType.TOGGLE | ActionType.REMOVE
+    payload: boolean | Task
 }
 
 export type Action = ActionStringPayload | ActionObjectPayload;

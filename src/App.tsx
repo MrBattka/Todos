@@ -1,4 +1,5 @@
-import { useReducer } from "react";
+import React, { useReducer } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import styles from './App.module.css';
 import Navbar from './Navbar/Navbar';
 import NewTask from './NewTask/NewTask';
@@ -14,17 +15,31 @@ const App = () => {
     changeState
   };
   return (
-    <>
-      <ContextApp.Provider value={ContextState}>
-        <div className={styles.app}>
-          <div className={styles.wrapperApp}>
+
+    <ContextApp.Provider value={ContextState}>
+      <div className={styles.app}>
+        <div className={styles.wrapper}>
+          <h2 className={styles.title}>todos</h2>
+        </div>
+        <div className={styles.flexbox}>
+          <div className={styles.wrapper__app}>
             <NewTask />
             <Navbar />
           </div>
         </div>
-      </ContextApp.Provider>
-    </>
+      </div>
+    </ContextApp.Provider>
   );
 }
 
-export default App;
+const TodosApp = () => {
+  return (
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  )
+}
+
+export default TodosApp;
