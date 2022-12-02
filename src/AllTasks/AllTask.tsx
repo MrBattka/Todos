@@ -10,6 +10,7 @@ const AllTask: React.FC = () => {
 
     const toggleTask = (taskForChange: Task) => {
         changeState({ type: ActionType.TOGGLE, payload: taskForChange })
+        
     }
     const removeTask = (taskForRemoving: Task) => {
         changeState({ type: ActionType.REMOVE, payload: taskForRemoving })

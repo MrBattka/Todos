@@ -4,7 +4,7 @@ import { Action, ActionType, ContextState, State } from "./ContextTypes";
 
 export const initialState: State = {
     tasks: [],
-    newTask: '',
+    newTask: ''
 }
 
 export const ContextApp = React.createContext<Partial<ContextState>>({});

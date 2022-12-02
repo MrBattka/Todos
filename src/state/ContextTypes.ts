@@ -1,20 +1,20 @@
 import { Dispatch } from "react";
 
 export type Task = {
-    taskText: string;
+    taskText: string
     isDone: boolean
 }
 
 export type Tasks = Task[];
 
 export type State = {
-    newTask: string;
+    newTask: string
     tasks: Tasks
 }
 
 export const defaultState: State = {
     newTask: '',
-    tasks: [],
+    tasks: []
 }
 
 export enum ActionType {

@@ -1,17 +1,20 @@
-import { useContext } from "react";
+import { useContext, useCallback } from "react";
 import { ActionType, defaultState, Task } from '../../state/ContextTypes';
 import { ContextApp } from "../../state/task-reduser";
 import styles from '../AllTask.module.css';
 
 const CompletedTask = () => {
     const { state = defaultState, changeState = () => { } } = useContext(ContextApp);
-    const toggleTask = (taskToggle: Task) => {
-        changeState({ type: ActionType.TOGGLE, payload: taskToggle })
-    }
-    const removeTask = (taskRemove: Task) => {
-        changeState({ type: ActionType.REMOVE, payload: taskRemove })
-    }
-
+    const toggleTask = useCallback(
+        (taskToggle: Task) => {
+            changeState({ type: ActionType.TOGGLE, payload: taskToggle })
+        }, [changeState]
+    )
+    const removeTask = useCallback(
+        (taskRemove: Task) => {
+            changeState({ type: ActionType.REMOVE, payload: taskRemove })
+        }, [changeState]
+    )
 
     return (
         <div className={styles.wrapper}>
@@ -29,6 +32,7 @@ const CompletedTask = () => {
                             <button className={styles.remove__button} onClick={() => removeTask(task)}>
                                 X
                             </button>
+                            
                         </div>
                     </li>
                 </ul>

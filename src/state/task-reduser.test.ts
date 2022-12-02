@@ -31,7 +31,7 @@ it(`don't delete`, () => {
     expect(newState.tasks.length).toBe(1)
 })
 
-it('change checkbox', () => {
+it('change isDone', () => {
     let action: ActionObjectPayload = ({ type: ActionType.TOGGLE, payload: state.tasks[0].isDone = true })
     let newState = todoReducer(state, action)
     expect(newState.tasks[0].isDone).toBe(true)
