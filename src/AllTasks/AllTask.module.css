@@ -11,7 +11,6 @@
 
 .ready span {
     display: flex;
-    position: absolute;
     justify-content: flex-start;
     margin-left: 8px;
     width: 1px;
@@ -69,25 +68,4 @@
     margin: 0;
     display: flex;
     align-items: center;
-}
-
-.remove__button {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    margin: 5px;
-    height: 27px;
-    background-color: inherit;
-    border: none;
-    font-size: 8px;
-    color: rgb(107, 99, 99);
-}
-.remove__button:hover {
-    color: red;
-}
-
-.wrapper__btn {
-    display: flex;
-    justify-content: right;
-    
 }

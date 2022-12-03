@@ -9,9 +9,6 @@ const ActiveTask: React.FC = () => {
     const toggleTask = (taskForChange: Task) => {
         changeState({ type: ActionType.TOGGLE, payload: taskForChange })
     }
-    const removeTask = (taskForRemoving: Task) => {
-        changeState({ type: ActionType.REMOVE, payload: taskForRemoving })
-    }
 
     return (
         <div className={styles.wrapper}>
@@ -24,11 +21,6 @@ const ActiveTask: React.FC = () => {
                         </label>
                         <div className={styles.wrapper__text}>
                             <p className={styles.task__text}>{task.taskText}</p>
-                        </div>
-                        <div className={styles.wrapper__btn}>
-                            <button className={styles.remove__button} onClick={() => removeTask(task)}>
-                                X
-                            </button>
                         </div>
                     </li>
                 </ul>

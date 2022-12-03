@@ -3,7 +3,7 @@ import todoReducer from './task-reduser';
 
 let state: any = {
     tasks: [
-        {taskText: '', isDone: false}
+        {taskText: '', isDone: true}
     ]
 }
 
@@ -23,12 +23,6 @@ it('delete task', () => {
     let action: ActionObjectPayload = ({ type: ActionType.REMOVE, payload: state.tasks[0] }) 
     let newState = todoReducer(state, action)
     expect(newState.tasks.length).toBe(0)
-})
-
-it(`don't delete`, () => {
-    let action: ActionObjectPayload = ({ type: ActionType.REMOVE, payload: state.tasks[10] })
-    let newState = todoReducer(state, action)
-    expect(newState.tasks.length).toBe(1)
 })
 
 it('change isDone', () => {

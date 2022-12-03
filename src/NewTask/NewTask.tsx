@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { useCallback, useContext, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { ActionType } from "../state/ContextTypes";
 import { ContextApp } from "../state/task-reduser";
 import styles from './NewTask.module.css';
 
 const InputTask: React.FC = () => {
     const { changeState } = useContext(ContextApp);
-
+    const navigate = useNavigate()
     const [text, setText] = useState('')
 
     const createTask = useCallback(
@@ -15,9 +16,9 @@ const InputTask: React.FC = () => {
             if (text && changeState) {
                 changeState({ type: ActionType.ADD, payload: text })
                 setText('')
+                navigate('/all')
             }        
-        },
-        [text, changeState]
+        }, [text, changeState, navigate]
     )
 
     return (

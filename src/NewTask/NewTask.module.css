@@ -1,11 +1,10 @@
-
-
 .flexbox {
     display: flex;
 }
 
 .wrapper input {
-    width: 320px;
+    width: 420px;
+    height: 25px;
     background-color: inherit;
     border: 1px solid rgba(122, 119, 119, 0.474);
     border-radius: 3px;
@@ -18,7 +17,8 @@
 }
 
 .wrapper button {
-    color: rgba(53, 52, 52, 0.811);
+    height: 29px;
+    color: rgba(53, 52, 52, 0.688);
     background-color: inherit;
     border: 1px solid rgba(122, 119, 119, 0.474);
     border-radius: 3px;
@@ -26,9 +26,11 @@
 }
 
 .wrapper button:hover {
-    border: 1px solid rgba(53, 52, 52, 0.474);
+    border: 1px solid rgba(33, 32, 32, 0.474);
+    box-shadow: 0px 0px 3px rgba(199, 194, 194, 0.588);
 }
 
 .wrapper button:active {
     background-color: rgba(199, 194, 194, 0.588);
+    box-shadow: none;
 }

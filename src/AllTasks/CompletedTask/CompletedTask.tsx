@@ -10,11 +10,6 @@ const CompletedTask = () => {
             changeState({ type: ActionType.TOGGLE, payload: taskToggle })
         }, [changeState]
     )
-    const removeTask = useCallback(
-        (taskRemove: Task) => {
-            changeState({ type: ActionType.REMOVE, payload: taskRemove })
-        }, [changeState]
-    )
 
     return (
         <div className={styles.wrapper}>
@@ -27,12 +22,6 @@ const CompletedTask = () => {
                         </label>
                         <div className={styles.wrapper__text}>
                             <p className={styles.task__text}>{task.taskText}</p>
-                        </div>
-                        <div className={styles.wrapper__btn}>
-                            <button className={styles.remove__button} onClick={() => removeTask(task)}>
-                                X
-                            </button>
-                            
                         </div>
                     </li>
                 </ul>

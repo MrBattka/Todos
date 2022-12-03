@@ -24,7 +24,7 @@
 .nav {
     display: flex;
     justify-content: center;
-    margin-left: 40px;
+    margin-left: 70px;
 }
 
 .active:hover {
@@ -49,6 +49,27 @@
     letter-spacing: 0px;
     padding: 0 4px 0 4px ;
 }
+
+.clear__completed button {
+    text-decoration: none;
+    color: rgba(53, 52, 52, 0.688);
+    font-weight: 400;
+    letter-spacing: 0px;
+    padding: 0 4px 0 4px ;
+    display: flex;
+    margin-left: 40px;
+    cursor: pointer;
+    background-color: inherit;
+    border: none;
+}
+
+.clear__completed button:hover {
+    text-shadow: 0px 0px 1px rgba(147, 146, 146, 0.688);;
+}
+.clear__completed button:active {
+    text-shadow: none;
+}
+
 .item:hover {
     background-color: rgba(199, 194, 194, 0.588);
     border-radius: 3px;

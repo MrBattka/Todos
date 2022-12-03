@@ -7,6 +7,7 @@ export const initialState: State = {
     newTask: ''
 }
 
+
 export const ContextApp = React.createContext<Partial<ContextState>>({});
 
 export const todoReducer = (state: State, action: Action): State => {
@@ -18,7 +19,7 @@ export const todoReducer = (state: State, action: Action): State => {
                 }]}
         }
         case ActionType.REMOVE: {
-            return {...state, tasks:  [...state.tasks.filter(task => task !== action.payload)]}
+            return {...state, tasks:  [...state.tasks.filter(task => task.isDone === false)]}
         }
         case ActionType.TOGGLE: {
             return {...state, tasks: [...state.tasks.map((task) => 

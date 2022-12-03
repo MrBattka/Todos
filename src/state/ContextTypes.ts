@@ -25,12 +25,12 @@ export enum ActionType {
 
 export type ActionStringPayload = {
     type: ActionType.ADD
-    payload: string
+    payload: string 
 }
 
 export type ActionObjectPayload = {
     type: ActionType.TOGGLE | ActionType.REMOVE
-    payload: boolean | Task
+    payload: Task | string | boolean
 }
 
 export type Action = ActionStringPayload | ActionObjectPayload;
