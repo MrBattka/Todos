@@ -1,4 +1,5 @@
 import { useContext, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { ActionType, defaultState, Task } from '../../state/ContextTypes';
 import { ContextApp } from "../../state/task-reduser";
 import styles from '../AllTask.module.css';
@@ -10,6 +11,10 @@ const CompletedTask = () => {
             changeState({ type: ActionType.TOGGLE, payload: taskToggle })
         }, [changeState]
     )
+    const navigate = useNavigate()
+    if (state.newTask) {
+        navigate("/all")
+    }
 
     return (
         <div className={styles.wrapper}>

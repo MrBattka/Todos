@@ -5,14 +5,13 @@ import { ContextApp } from "../state/task-reduser";
 
 const CounterTask = () => {
     const { state = defaultState } = useContext(ContextApp);
-
     const itemCounter = state.tasks.map(t => t.isDone).filter(t => t === false)
     
     return (
         <div>
-            <p>{itemCounter.length} items left</p>
+            <p data-testid="counter-task">{itemCounter.length} items left</p>
         </div>
     )
 }
 
-export default CounterTask 
+export default CounterTask

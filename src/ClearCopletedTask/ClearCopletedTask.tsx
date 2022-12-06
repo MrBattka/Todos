@@ -11,13 +11,12 @@ const ClearCopletedTask = () => {
         (event: React.MouseEvent<HTMLButtonElement>) => {
             event.preventDefault()
             changeState({ type: ActionType.REMOVE, payload: task })
-
         }, [task, changeState]
     )
 
     return (
         <div className={styles.clear__completed}>
-            <button onClick={clearCompletedTask}> Clear completed</button>
+            <button data-testid="clear-completed" onClick={clearCompletedTask}> Clear completed</button>
         </div>
     )
 }

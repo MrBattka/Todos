@@ -6,8 +6,7 @@ import styles from './AllTask.module.css';
 
 const AllTask: React.FC = () => {
 
-    const { state = defaultState, changeState = () => { } } = useContext(ContextApp);
-
+    const { state = defaultState, changeState = () => { } } = useContext(ContextApp)
     const toggleTask = useCallback(
         (taskForChange: Task) => {
             changeState({ type: ActionType.TOGGLE, payload: taskForChange })
@@ -21,11 +20,12 @@ const AllTask: React.FC = () => {
                     <div>
                         <li className={styles.flexbox}>
                             <label className={task.isDone ? styles.ready : undefined}>
-                                <input type="checkbox" onChange={() => toggleTask(task)} checked={task.isDone} />
-                                <span className={task.isDone ? styles.ready : styles.select}>&#10003;</span>
+                                <input data-testid="completed-task" type="checkbox"
+                                    onChange={() => toggleTask(task)} checked={task.isDone} />
+                                <span data-testid="completed" className={task.isDone ? styles.ready : styles.not__select}>&#10003;</span>
                             </label>
                             <div className={styles.wrapper__text}>
-                                <p className={styles.task__text}>{task.taskText}</p>
+                                <p data-testid="new-text" className={styles.task__text}>{task.taskText}</p>
                             </div>
                         </li>
                     </div>
