@@ -2,9 +2,13 @@
     display: flex;
 }
 
+.input__ui {
+    display: flex;
+}
+
 .wrapper input {
-    width: 420px;
-    height: 25px;
+    width: 345px;
+    height: 20px;
     background-color: inherit;
     border: 1px solid rgba(122, 119, 119, 0.474);
     border-radius: 3px;
@@ -17,7 +21,7 @@
 }
 
 .wrapper button {
-    height: 29px;
+    height: 39px;
     color: rgba(53, 52, 52, 0.688);
     background-color: inherit;
     border: 1px solid rgba(122, 119, 119, 0.474);

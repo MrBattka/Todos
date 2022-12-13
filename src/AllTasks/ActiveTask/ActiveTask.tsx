@@ -1,11 +1,21 @@
 import * as React from 'react'
-import { useContext, useCallback } from "react";
+import { useContext, useCallback, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import { ActionType, defaultState, Task } from '../../state/ContextTypes';
 import { ContextApp } from "../../state/task-reduser";
 import styles from '../AllTask.module.css'
 
 const ActiveTask: React.FC = () => {
     const { state = defaultState, changeState = () => { } } = useContext(ContextApp);
+    const navigate = useNavigate()
+
+    const taskActiveCounter = state.tasks.map(t => t.isDone).filter(t => t === false)
+    useEffect(() => {
+        if (!taskActiveCounter.length) {
+            navigate("/all")
+        }
+    })
+
     const toggleTask = useCallback(
         (taskForChange: Task) => {
             changeState({ type: ActionType.TOGGLE, payload: taskForChange })

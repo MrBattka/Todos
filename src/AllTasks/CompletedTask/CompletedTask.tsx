@@ -1,4 +1,4 @@
-import { useContext, useCallback } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ActionType, defaultState, Task } from '../../state/ContextTypes';
 import { ContextApp } from "../../state/task-reduser";
@@ -6,15 +6,20 @@ import styles from '../AllTask.module.css';
 
 const CompletedTask = () => {
     const { state = defaultState, changeState = () => { } } = useContext(ContextApp);
+    const navigate = useNavigate()
+
+    const taskCompletedCounter = state.tasks.map(t => t.isDone).filter(t => t === true)
+    useEffect(() => {
+        if (!taskCompletedCounter[0]) {
+            navigate("/all")
+        }
+    })
+
     const toggleTask = useCallback(
         (taskToggle: Task) => {
             changeState({ type: ActionType.TOGGLE, payload: taskToggle })
         }, [changeState]
     )
-    const navigate = useNavigate()
-    if (state.newTask) {
-        navigate("/all")
-    }
 
     return (
         <div className={styles.wrapper}>

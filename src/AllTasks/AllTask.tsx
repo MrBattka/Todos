@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext, useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { ActionType, defaultState, Task } from "../state/ContextTypes";
 import { ContextApp } from "../state/task-reduser";
 import styles from './AllTask.module.css';
