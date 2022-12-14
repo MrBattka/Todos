@@ -11,8 +11,10 @@ const InputTask: React.FC = () => {
 
     const createTask = useCallback(
         (event: React.FormEvent<HTMLFormElement>) => {
-            event.preventDefault();
-            if (text && changeState) {
+            event.preventDefault()
+            let entryBan = text.replace(/[^a-zа-яё0-9]/gi, '')
+            
+            if (text && changeState && entryBan) {
                 changeState({ type: ActionType.ADD, payload: text })
                 setText('')
             }
@@ -23,7 +25,7 @@ const InputTask: React.FC = () => {
         <div className={styles.wrapper}>
             <form onSubmit={createTask}>
                 <div className={styles.input__ui}>
-                    <TextField data-testid="input" onChange={(event) => setText(event.target.value)} value={text}
+                    <TextField inputProps={{ 'data-testid': 'input' }} onChange={(event) => setText(event.target.value)} value={text}
                         label="What needs to be done?"
                         variant="outlined" size="small" id="fullWidth" />
                     <Button data-testid="new-task" variant="outlined" size="large" type='submit'>New task</Button>

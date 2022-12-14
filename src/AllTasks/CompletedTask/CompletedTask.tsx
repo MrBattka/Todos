@@ -4,7 +4,7 @@ import { ActionType, defaultState, Task } from '../../state/ContextTypes';
 import { ContextApp } from "../../state/task-reduser";
 import styles from '../AllTask.module.css';
 
-const CompletedTask = () => {
+const CompletedTask: React.FC = () => {
     const { state = defaultState, changeState = () => { } } = useContext(ContextApp);
     const navigate = useNavigate()
 

@@ -4,12 +4,12 @@ import ActiveTask from './AllTasks/ActiveTask/ActiveTask';
 import AllTask from './AllTasks/AllTask';
 import CompletedTask from './AllTasks/CompletedTask/CompletedTask';
 import styles from './App.module.css';
-import Navbar from './Navbar/Navbar';
+import Navbar from './Footer/Footer';
 import NewTask from './NewTask/NewTask';
 import { Action, ContextState, State } from "./state/ContextTypes";
 import todoReducer, { ContextApp, initialState } from './state/task-reduser';
 
-const App = () => {
+const App: React.FC = () => {
   const [state, changeState] = useReducer<React.Reducer<State, Action>>(todoReducer, initialState);
 
   const ContextState: ContextState = {

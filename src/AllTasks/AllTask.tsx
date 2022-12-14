@@ -5,7 +5,6 @@ import { ContextApp } from "../state/task-reduser";
 import styles from './AllTask.module.css';
 
 const AllTask: React.FC = () => {
-
     const { state = defaultState, changeState = () => { } } = useContext(ContextApp)
     const toggleTask = useCallback(
         (taskForChange: Task) => {

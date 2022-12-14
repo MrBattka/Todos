@@ -1,9 +1,9 @@
 import { useCallback, useContext, useState } from 'react';
-import styles from '../Navbar/Navbar.module.css';
+import styles from '../Footer/Footer.module.css';
 import { ActionType } from '../state/ContextTypes';
 import { ContextApp } from '../state/task-reduser';
 
-const ClearCopletedTask = () => {
+const ClearCompletedTask: React.FC = () => {
     const { changeState = () => { } } = useContext(ContextApp);
     const [task] = useState('')
 
@@ -21,4 +21,4 @@ const ClearCopletedTask = () => {
     )
 }
 
-export default ClearCopletedTask
+export default ClearCompletedTask
