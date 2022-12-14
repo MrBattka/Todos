@@ -5,7 +5,7 @@ const Navbar: React.FC = () => {
     return(
         <nav className={styles.nav}>
                 <div className={styles.wrapper__nav}>
-                    <NavLink className={navData => navData.isActive ? styles.active : styles.item}
+                    <NavLink end className={navData => navData.isActive ? styles.active : styles.item}
                         to='/Todos/all'>All</NavLink>
                 </div>
                 <div>
