@@ -11,7 +11,7 @@ const CompletedTask: React.FC = () => {
     const taskCompletedCounter = state.tasks.map(t => t.isDone).filter(t => t === true)
     useEffect(() => {
         if (!taskCompletedCounter[0]) {
-            navigate("/all")
+            navigate("/Todos/all")
         }
     })
 

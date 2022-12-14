@@ -12,7 +12,7 @@
 
 .counter__item {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     margin-left: 10px;
     color: black;
     padding: 0 3px 0 3px;
@@ -33,7 +33,7 @@
 
 .wrapper {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     border-top: 1px solid rgba(122, 119, 119, 0.474);
     height: 40px;

@@ -27,11 +27,11 @@ const App: React.FC = () => {
           <div className={styles.wrapper__app}>
             <NewTask />
             <Routes>
-              <Route path='' element={<AllTask />} />
-              <Route path='/' element={<AllTask />} />
-              <Route path='/all' element={<AllTask />} />
-              <Route path='/active' element={<ActiveTask />} />
-              <Route path='/completed' element={<CompletedTask />} />
+              <Route path='/Todos' element={<AllTask />} />
+              <Route path='/Todos/' element={<AllTask />} />
+              <Route path='/Todos/all' element={<AllTask />} />
+              <Route path='/Todos/active' element={<ActiveTask />} />
+              <Route path='/Todos/completed' element={<CompletedTask />} />
             </Routes>
             <Navbar />
           </div>

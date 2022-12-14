@@ -7,7 +7,6 @@ export const initialState: State = {
     newTask: ''
 }
 
-
 export const ContextApp = React.createContext<Partial<ContextState>>({});
 
 export const todoReducer = (state: State, action: Action): State => {
@@ -28,6 +27,5 @@ export const todoReducer = (state: State, action: Action): State => {
         default: throw new Error('Unexpected action');
     }
 };
-
 
 export default todoReducer

@@ -6,15 +6,15 @@ const Navbar: React.FC = () => {
         <nav className={styles.nav}>
                 <div className={styles.wrapper__nav}>
                     <NavLink className={navData => navData.isActive ? styles.active : styles.item}
-                        to='/all'>All</NavLink>
+                        to='/Todos/all'>All</NavLink>
                 </div>
                 <div>
                     <NavLink className={navData => navData.isActive ? styles.active : styles.item}
-                        to="/active">Active</NavLink>
+                        to="/Todos/active">Active</NavLink>
                 </div>
                 <div>
                     <NavLink className={navData => navData.isActive ? styles.active : styles.item}
-                        to="/completed">Completed</NavLink>
+                        to="/Todos/completed">Completed</NavLink>
                 </div>
             </nav>
     )
