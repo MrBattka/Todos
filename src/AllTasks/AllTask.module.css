@@ -23,6 +23,13 @@
     overflow-x: hidden;
 }
 
+.tasks__empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(53, 52, 52, 0.688);
+}
+
 .wrapper ul {
     margin: 0;
     padding: 0;

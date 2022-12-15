@@ -14,22 +14,27 @@ const AllTask: React.FC = () => {
 
     return (
         <div className={styles.wrapper}>
-            {state.tasks.map((task, i) => (
-                <ul key={i}>
-                    <div>
-                        <li className={styles.flexbox}>
-                            <label className={task.isDone ? styles.ready : undefined}>
-                                <input data-testid="completed-task" type="checkbox"
-                                    onChange={() => toggleTask(task)} checked={task.isDone} />
-                                <span data-testid="completed" className={task.isDone ? styles.ready : styles.not__select}>&#10003;</span>
-                            </label>
-                            <div className={styles.wrapper__text}>
-                                <p data-testid="new-text" className={styles.task__text}>{task.taskText}</p>
-                            </div>
-                        </li>
-                    </div>
-                </ul>
-            ))}
+            {!state.tasks.length ?
+
+                <p className={styles.tasks__empty}>The task list is empty</p> :
+
+                state.tasks.map((task, i) => (
+                    <ul key={i}>
+                        <div>
+                            <li className={styles.flexbox}>
+                                <label className={task.isDone ? styles.ready : undefined}>
+                                    <input data-testid="completed-task" type="checkbox"
+                                        onChange={() => toggleTask(task)} checked={task.isDone} />
+                                    <span data-testid="completed"
+                                        className={task.isDone ? styles.ready : styles.not__select}>&#10003;</span>
+                                </label>
+                                <div className={styles.wrapper__text}>
+                                    <p data-testid="new-text" className={styles.task__text}>{task.taskText}</p>
+                                </div>
+                            </li>
+                        </div>
+                    </ul>
+                ))}
         </div>
     )
 }

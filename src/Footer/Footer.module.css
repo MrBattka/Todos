@@ -15,16 +15,19 @@
     justify-content: flex-start;
     margin-left: 10px;
     color: black;
-    padding: 0 3px 0 3px;
     opacity: 60%;
     font-weight: 400;
     letter-spacing: 0px;
 }
 
+.counter__item p {
+    width: 71px;
+}
+
 .nav {
     display: flex;
     justify-content: center;
-    margin-left: 70px;
+    margin-left: 69px;
 }
 
 .active:hover {
@@ -52,14 +55,15 @@
 }
 .clear__completed {
     width: 120px;
-    margin-left: 40px;
+    margin-left: 37px;
+    margin-right: 10px;
 }
 .clear__completed button {
     text-decoration: none;
     color: rgba(53, 52, 52, 0.688);
     font-weight: 400;
     letter-spacing: 0px;
-    padding: 0 4px 0 4px ;
+    padding: 0;
     display: flex;
     cursor: pointer;
     background-color: inherit;
@@ -90,16 +94,17 @@
         font-size: 10px;
     }
     .nav {
-        margin-left: 50px;
+        margin-left: 30px;
     }
     .item {
         margin-right: 10px;
     }
     .clear__completed {
-        margin-left: 30px;
-        width: 100px;
+        margin-left: 40px;
+        width: 80px;
     }
     .clear__completed button {
-        font-size: 12px;
+        font-size: 10px;
+        width: 60px;
     }
 }

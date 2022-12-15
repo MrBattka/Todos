@@ -1,5 +1,5 @@
-import React, { useEffect, useReducer } from 'react';
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import React, { useReducer } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ActiveTask from './AllTasks/ActiveTask/ActiveTask';
 import AllTask from './AllTasks/AllTask';
 import CompletedTask from './AllTasks/CompletedTask/CompletedTask';
@@ -11,18 +11,11 @@ import todoReducer, { ContextApp, initialState } from './state/task-reduser';
 
 const App: React.FC = () => {
   const [state, changeState] = useReducer<React.Reducer<State, Action>>(todoReducer, initialState)
-  const navigate = useNavigate()
 
   const ContextState: ContextState = {
     state,
     changeState
   }
-
-  useEffect(() => {
-    if (!state.newTask) {
-      navigate('/Todos/all')
-    }
-  }, [state.newTask, navigate])
 
   return (
     <ContextApp.Provider value={ContextState}>

@@ -6,9 +6,7 @@ import Navbar from "./Navbar/Navbar";
 const Footer: React.FC = () => {
     return (
         <div className={styles.wrapper}>
-            <div className={styles.counter__item}>
-                <CounterTask />
-            </div>
+            <CounterTask />
             <Navbar />
             <ClearCompletedTask />
         </div>
