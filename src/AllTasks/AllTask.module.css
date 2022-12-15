@@ -1,22 +1,3 @@
-.ready {
-    display: block;
-    flex-direction: row;
-    margin: 0;
-}
-
-.ready input {
-    padding: 0;
-    opacity: 0;
-}
-
-.ready span {
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 8px;
-    width: 1px;
-    color: green;
-}
-
 .wrapper {
     max-height: 400px;
     overflow-y: auto;
@@ -35,34 +16,15 @@
     padding: 0;
 }
 
-.wrapper label {
-    border: 1px solid rgb(192, 206, 201);
-    border-radius: 50%;
-    margin: 5px;
-    width: 25px;
-    height: 25px;
-}
-
-.wrapper label:hover {
-    box-shadow: 0 0 1px;
-}
-
-.wrapper label:active {
-    box-shadow: none;
-}
-
-.wrapper input {
-    display: none;
+.wrapper span {
+    height: 37px;
+    
 }
 
 .flexbox {
     display: flex;
     flex-direction: row;
     height: 37px;
-}
-
-.not__select {
-    display: none;
 }
 
 .wrapper__text {

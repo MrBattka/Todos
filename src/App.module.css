@@ -26,6 +26,7 @@
 
 .wrapper__app {
     background-color: white;
+    padding-top: 5px;
     width: content;
     height: content;
     min-width: 320px;

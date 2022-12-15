@@ -1,3 +1,4 @@
+import { Checkbox } from '@mui/material';
 import * as React from 'react';
 import { useCallback, useContext } from "react";
 import { ActionType, defaultState, Task } from "../state/ContextTypes";
@@ -22,11 +23,8 @@ const AllTask: React.FC = () => {
                     <ul key={i}>
                         <div>
                             <li className={styles.flexbox}>
-                                <label className={task.isDone ? styles.ready : undefined}>
-                                    <input data-testid="completed-task" type="checkbox"
-                                        onChange={() => toggleTask(task)} checked={task.isDone} />
-                                    <span data-testid="completed"
-                                        className={task.isDone ? styles.ready : styles.not__select}>&#10003;</span>
+                                <label>
+                                    <Checkbox onChange={() => toggleTask(task)} checked={task.isDone} />
                                 </label>
                                 <div className={styles.wrapper__text}>
                                     <p data-testid="new-text" className={styles.task__text}>{task.taskText}</p>

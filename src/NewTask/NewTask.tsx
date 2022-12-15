@@ -26,7 +26,7 @@ const InputTask: React.FC = () => {
             <form onSubmit={createTask}>
                 <div className={styles.input__ui}>
                     <TextField inputProps={{ 'data-testid': 'input' }} onChange={(event) => setText(event.target.value)} value={text}
-                        label="What needs to be done?" variant="filled" size="small" id="fullWidth" />
+                        label="What needs to be done?" variant="outlined" size="small" id="fullWidth" />
                     <Button data-testid="new-task" variant="outlined" size="large" type='submit'><span>New task</span></Button>
                 </div>
             </form>
