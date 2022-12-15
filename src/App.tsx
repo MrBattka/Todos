@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import ActiveTask from './AllTasks/ActiveTask/ActiveTask';
 import AllTask from './AllTasks/AllTask';
@@ -23,7 +23,7 @@ const App: React.FC = () => {
       navigate('/Todos/all')
     }
   }, [state.newTask, navigate])
-  
+
   return (
     <ContextApp.Provider value={ContextState}>
       <div className={styles.app}>
@@ -52,7 +52,7 @@ const TodosApp = () => {
   return (
     <React.StrictMode>
       <BrowserRouter>
-        <App />
+          <App />
       </BrowserRouter>
     </React.StrictMode>
   )

@@ -13,7 +13,7 @@ const InputTask: React.FC = () => {
         (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault()
             let entryBan = text.replace(/[^a-zа-яё0-9]/gi, '')
-            
+
             if (text && changeState && entryBan) {
                 changeState({ type: ActionType.ADD, payload: text })
                 setText('')
@@ -28,7 +28,7 @@ const InputTask: React.FC = () => {
                     <TextField inputProps={{ 'data-testid': 'input' }} onChange={(event) => setText(event.target.value)} value={text}
                         label="What needs to be done?"
                         variant="outlined" size="small" id="fullWidth" />
-                    <Button data-testid="new-task" variant="outlined" size="large" type='submit'>New task</Button>
+                    <Button data-testid="new-task" variant="outlined" size="large" type='submit'><span>New task</span></Button>
                 </div>
             </form>
         </div>

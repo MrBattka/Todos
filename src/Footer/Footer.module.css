@@ -35,6 +35,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    min-width: 320px;
     border-top: 1px solid rgba(122, 119, 119, 0.474);
     height: 40px;
     font-size: 13px;
@@ -49,7 +50,10 @@
     letter-spacing: 0px;
     padding: 0 4px 0 4px ;
 }
-
+.clear__completed {
+    width: 120px;
+    margin-left: 40px;
+}
 .clear__completed button {
     text-decoration: none;
     color: rgba(53, 52, 52, 0.688);
@@ -57,7 +61,6 @@
     letter-spacing: 0px;
     padding: 0 4px 0 4px ;
     display: flex;
-    margin-left: 40px;
     cursor: pointer;
     background-color: inherit;
     border: none;
@@ -73,4 +76,30 @@
 .item:hover {
     background-color: rgba(199, 194, 194, 0.588);
     border-radius: 3px;
+}
+
+@media (max-width: 499px) {
+    .wrapper {
+        font-size: 12px;
+    }
+    .active {
+        margin-right: 10px;
+    }
+    .counter__item {
+        margin-left: 5px;
+        font-size: 10px;
+    }
+    .nav {
+        margin-left: 50px;
+    }
+    .item {
+        margin-right: 10px;
+    }
+    .clear__completed {
+        margin-left: 30px;
+        width: 100px;
+    }
+    .clear__completed button {
+        font-size: 12px;
+    }
 }
