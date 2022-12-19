@@ -1,0 +1,36 @@
+.active {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    opacity: 60%;
+    font-weight: 400;
+    letter-spacing: 0px;
+    border: 1px solid rgb(2, 32, 186);
+    border-radius: 3px;
+    padding: 0 3px 0 3px ;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    margin-left: 69px;
+}
+
+.active:hover {
+    box-shadow: 0px 0px 2px;
+}
+
+.item {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    opacity: 60%;
+    font-weight: 400;
+    letter-spacing: 0px;
+    padding: 0 4px 0 4px ;
+}
+
+.item:hover {
+    background-color: rgba(199, 194, 194, 0.588);
+    border-radius: 3px;
+}

@@ -1,8 +1,8 @@
 import { Button, TextField } from '@mui/material';
 import * as React from 'react';
 import { useCallback, useContext, useState } from "react";
-import { ActionType } from "../state/ContextTypes";
-import { ContextApp } from "../state/task-reduser";
+import { ActionType } from "../../state/ContextTypes";
+import { ContextApp } from "../../state/task-reduser";
 import styles from './NewTask.module.css';
 
 const InputTask: React.FC = () => {

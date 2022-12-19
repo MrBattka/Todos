@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
-import { defaultState } from "../state/ContextTypes";
-import { ContextApp } from "../state/task-reduser";
+import { defaultState } from "../../state/ContextTypes";
+import { ContextApp } from "../../state/task-reduser";
 import styles from "../Footer/Footer.module.css"
 
 const CounterTask: React.FC = () => {

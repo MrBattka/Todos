@@ -1,8 +1,8 @@
-import { Checkbox } from '@mui/material';
+import { Checkbox, FormControlLabel } from '@mui/material';
 import * as React from 'react';
 import { useCallback, useContext } from "react";
-import { ActionType, defaultState, Task } from "../state/ContextTypes";
-import { ContextApp } from "../state/task-reduser";
+import { ActionType, defaultState, Task } from "../../state/ContextTypes";
+import { ContextApp } from "../../state/task-reduser";
 import styles from './AllTask.module.css';
 
 const AllTask: React.FC = () => {
@@ -23,9 +23,12 @@ const AllTask: React.FC = () => {
                     <ul key={i}>
                         <div>
                             <li className={styles.flexbox}>
-                                <label>
-                                    <Checkbox onChange={() => toggleTask(task)} checked={task.isDone} />
-                                </label>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox inputProps={{ 'aria-label': 'primary checkbox' }} 
+                                            role='checkbox' data-testid="completed-task" onChange={() => toggleTask(task)} checked={task.isDone} />
+                                    }
+                                    label="The task has changed" />
                                 <div className={styles.wrapper__text}>
                                     <p data-testid="new-text" className={styles.task__text}>{task.taskText}</p>
                                 </div>

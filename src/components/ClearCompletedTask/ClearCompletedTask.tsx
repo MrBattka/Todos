@@ -1,7 +1,7 @@
 import { useCallback, useContext, useState } from 'react';
 import styles from '../Footer/Footer.module.css';
-import { ActionType } from '../state/ContextTypes';
-import { ContextApp } from '../state/task-reduser';
+import { ActionType } from '../../state/ContextTypes';
+import { ContextApp } from '../../state/task-reduser';
 
 const ClearCompletedTask: React.FC = () => {
     const { changeState = () => { } } = useContext(ContextApp);

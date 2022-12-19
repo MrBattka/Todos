@@ -1,7 +1,7 @@
 import ClearCompletedTask from "../ClearCompletedTask/ClearCompletedTask";
 import CounterTask from "../CounterTask/CounterTask";
 import styles from './Footer.module.css';
-import Navbar from "./Navbar/Navbar";
+import Navbar from "../Footer/Navbar/Navbar";
 
 const Footer: React.FC = () => {
     return (

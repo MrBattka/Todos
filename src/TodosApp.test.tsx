@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import TodosApp from './App';
-import NewTask from './NewTask/NewTask';
+import NewTask from './components/NewTask/NewTask';
 
 describe('New task', () => {
   it("input value should change", () => {
@@ -37,7 +37,7 @@ describe("All task", () => {
     userEvent.type(inputEl, "test")
     fireEvent.click(btnEl)
 
-    const checkboxEl = screen.getByTestId("completed-task")
+    const checkboxEl = screen.getByLabelText("The task has changed") as HTMLInputElement
 
     expect(checkboxEl).not.toBeChecked()
 
@@ -58,7 +58,7 @@ describe("Counter task", () => {
   userEvent.type(inputEl, "test")
   fireEvent.click(btnEl)
 
-  const checkboxEl = screen.getByTestId("completed-task")
+  const checkboxEl = screen.getByLabelText("The task has changed") as HTMLInputElement
 
   expect(counterTask).toHaveTextContent("1")
 
@@ -78,7 +78,7 @@ describe("Clear completed task", () => {
   fireEvent.click(btnEl)
 
   const newText = screen.getByTestId("new-text")
-  const checkboxEl = screen.getByTestId("completed-task")
+  const checkboxEl = screen.getByLabelText("The task has changed") as HTMLInputElement
   const clearTask = screen.getByTestId("clear-completed")
 
   fireEvent.click(checkboxEl)
