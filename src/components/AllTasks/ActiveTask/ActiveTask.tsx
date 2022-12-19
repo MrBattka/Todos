@@ -28,7 +28,7 @@ const ActiveTask: React.FC = () => {
                             <FormControlLabel
                                 control={
                                     <Checkbox inputProps={{ 'aria-label': 'primary checkbox' }}
-                                        role='checkbox' data-testid="completed-task" onChange={() => toggleTask(task)}
+                                        data-testid="completed-task" onChange={() => toggleTask(task)}
                                         checked={task.isDone} />
                                 }
                                 label="The task has changed" />

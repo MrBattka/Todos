@@ -17,8 +17,15 @@
 }
 
 .wrapper span {
-    height: 37px;
-    
+    height: 37px; 
+}
+
+.wrapper label {
+    margin: 0px;
+}
+
+.wrapper label span:last-child {
+    display: none;
 }
 
 .flexbox {
@@ -30,7 +37,6 @@
 .wrapper__text {
     height: 37px;
     display: flex;
-    margin-left: 15px;
 }
 
 .task__text {
