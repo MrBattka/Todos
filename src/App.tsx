@@ -1,5 +1,5 @@
-import React, { useReducer } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, { useEffect, useReducer } from 'react';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import ActiveTask from './components/AllTasks/ActiveTask/ActiveTask';
 import AllTask from './components/AllTasks/AllTask';
 import CompletedTask from './components/AllTasks/CompletedTask/CompletedTask';
@@ -11,6 +11,13 @@ import todoReducer, { ContextApp, initialState } from './state/task-reduser';
 
 const App: React.FC = () => {
   const [state, changeState] = useReducer<React.Reducer<State, Action>>(todoReducer, initialState)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!state.tasks[0]) {
+      return navigate('/all')
+    }
+  }, [])
 
   const ContextState: ContextState = {
     state,
@@ -27,6 +34,7 @@ const App: React.FC = () => {
           <div className={styles.wrapper__app}>
             <NewTask />
             <Routes>
+              <Route path='' element={<AllTask />} />
               <Route path='*' element={<AllTask />} />
               <Route path='/' element={<AllTask />} />
               <Route path='/all' element={<AllTask />} />
