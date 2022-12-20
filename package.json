@@ -1,7 +1,7 @@
 {
   "name": "test-task",
   "version": "0.1.0",
-  "homepage": "https://MrBattka.github.io/all",
+  "homepage": "https://MrBattka.github.io/Todos/all",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
