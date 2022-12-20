@@ -30,7 +30,7 @@ const AllTask: React.FC = () => {
                                     }
                                     label="The task has changed" />
                                 <div className={styles.wrapper__text}>
-                                    <p data-testid="new-text" className={styles.task__text}>{task.taskText}</p>
+                                    <p data-testid="new-text" className={task.isDone ? styles.task__text__cmpltd : styles.task__text}>{task.taskText}</p>
                                 </div>
                             </li>
                         </div>
