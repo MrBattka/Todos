@@ -27,7 +27,7 @@ const App: React.FC = () => {
           <div className={styles.wrapper__app}>
             <NewTask />
             <Routes>
-              <Route path='' element={<AllTask />} />
+              <Route path='*' element={<AllTask />} />
               <Route path='/' element={<AllTask />} />
               <Route path='/all' element={<AllTask />} />
               <Route path='/active' element={<ActiveTask />} />
@@ -45,7 +45,7 @@ const TodosApp = () => {
   return (
     <React.StrictMode>
       <BrowserRouter>
-          <App />
+        <App />
       </BrowserRouter>
     </React.StrictMode>
   )

@@ -5,7 +5,7 @@ const Navbar: React.FC = () => {
     return(
         <nav className={styles.nav}>
                 <div className={styles.wrapper__nav}>
-                    <NavLink end className={navData => navData.isActive ? styles.active : styles.item}
+                    <NavLink defaultChecked={true} className={navData => navData.isActive ? styles.active : styles.item}
                         to='/all'>All</NavLink>
                 </div>
                 <div>
