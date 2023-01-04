@@ -25,7 +25,7 @@ const InputTask: React.FC = () => {
         <div className={styles.wrapper}>
             <form onSubmit={createTask}>
                 <div className={styles.input__ui}>
-                    <TextField inputProps={{ 'data-testid': 'input' }} onChange={(event) => setText(event.target.value)} value={text}
+                    <TextField inputProps={{ 'data-testid': 'input', "maxlength": "40" }} onChange={(event) => setText(event.target.value)} value={text}
                         label="What needs to be done?" variant="outlined" size="small" id="fullWidth" />
                     <Button data-testid="new-task" variant="outlined" size="large" type='submit'><span>New task</span></Button>
                 </div>
